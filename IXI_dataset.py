@@ -20,7 +20,6 @@ class IXIData(Dataset):
         self.examples = []
         files = list(pathlib.Path(self.data_path).iterdir())
         # The middle slices have more detailed information, so it is more difficult to reconstruct.
-        # Choosing the middle slices means choosing the harder samples for training and testing.
         start_id, end_id = 30, 100
         for file in sorted(files):
             self.examples += [(file, slice_id) for slice_id in range(start_id, end_id)]
